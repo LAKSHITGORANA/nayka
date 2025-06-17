@@ -1,0 +1,518 @@
+                  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nykaa </title>
+    <link rel="icon" type="Untitled design 1.png" href="Untitled design 1.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #ff3f6c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+        }
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .banner img.active {
+            opacity: 1;
+        }
+        .brands-section {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+
+        }
+        .brands-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .brand {
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 150px;
+        }
+        .brand img {
+            width: 100%;
+            height: auto;
+        }
+        .products {
+            text-align: center;
+            padding: 20px;
+        }
+        .product-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 200px;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        button {
+            background: #ff3f6c;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #e6375c;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #222;
+            color: white;
+        }
+        .brands-list {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap; 
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+.product {
+    width: calc(33.33% - 10px); 
+    margin: 5px;
+}
+
+
+.brand {
+  text-align: center;
+  overflow: hidden;
+  border-radius: 50%; 
+}
+
+.brand img {
+  width: 120px;
+  height: 120px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  transition: transform 0.3s ease-in-out;
+}
+
+.brand:hover img {
+  transform: scale(1.2); 
+}
+.product:hover img {
+  transform: scale(1.2); 
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px; 
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .slider-container {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            margin: auto;
+            border: 2px solid black;
+        }
+        .images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+        .images img {
+            width: 500px;
+            height: 300px;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color:#adff2f;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        /* Add this to the end of your existing styles */
+@media screen and (max-width: 768px) {
+    /* Mobile-specific styles */
+    body {
+        font-size: 14px; /* Smaller font size for mobile */
+        padding: 10px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack menu items vertically */
+    }
+
+    .banner {
+        height: 250px; /* Adjust banner height for smaller screens */
+    }
+
+    .brands-list {
+        flex-direction: column; /* Stack brands vertically */
+        align-items: center;
+    }
+
+    .product-list {
+        flex-direction: column; /* Stack products vertically */
+        align-items: center;
+    }
+
+    .product {
+        width: 80%; /* Make product cards wider on mobile */
+    }
+
+    .slider-container {
+        width: 100%; /* Make slider full width */
+    }
+
+    .images img {
+        width: 100%; /* Make images responsive */
+    }
+}
+
+
+        
+    </style>
+</head>
+<body>    
+    <header>
+        <nav>
+            <b>
+            <div class="logo">Nykaa</div>
+            <ul>
+                <li><a onclick="toggleBrands()">Brands</a></li>
+                <li><a href="#">Luxe</a></li>
+                <li><p><a href="https://www.nykaa.com/makeup-category" target="pankaj">Categories</a></p></li>
+                <li><p><a href="https://www.nykaafashion.com/?srsltid=AfmBOoqXL3I8fOPHqvRMEQG9F7vMkvp0LbedLjLd4kPeec_zAGGA3QqP" target="pankaj">Nykaa Fashion</a></p></li>
+                <li><p><a href="https://www.nykaa.com/?utm_source=admitad&utm_medium=affiliates&utm_campaign=nykadmitad_2328630_&tagtag_uid=d8536abf7de89d3ead80615c6f2ee7b8&gad_source=1&gclid=CjwKCAiA8Lu9BhA8EiwAag16b-pnByaFYnJ0YRVKCKNO-xxgndPNXOTHp6_7n5ZyUs_mQu8nnZy-YhoCdmsQAvD_BwE" target="pankaj">LOGIN</a></p></li>
+            </ul>
+        </b>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="banner">
+            <img src="162bc1f9-c1ee-40ba-a858-e08f64c93c40_Nykaa_Pink_Love_Sale__Hot_Offers__Upto_60__Off_And_Get_Free_Gifts.gif" class="active" alt="Banner 1">
+            <img src="382b6e65-9e59-4110-b4e0-4d195c60275f_NYKAA_offer_animation_banner___Google_Search.gif" alt="Banner 2">
+            <img src="5fa81b1a-2377-4f2b-8b93-c6edaf187ab5_NYKAA_offer_animation_banner___Google_Search.gif" alt="Banner 3">
+        </section>
+        
+        <section class="brands-section" id="brands-section">
+            <h2>Our Brands</h2>
+            <div class="brands-list">
+                <div class="brand"><img src="NIVEA.gif" alt=""><p> <B>NIVEA</B></p></div>
+                <div class="brand"><img src="LOTUS.gif" alt=""><p><B>LOTUS</B></p></div>
+                <div class="brand"><img src="OLAY 2.gif" alt=""><p><B>OLAY</B></p></div>
+                <div class="brand"><img src="company.gif" alt=""><p><B>COLORBAR</B></p></div>
+                <div class="brand"><img src="WISH.gif" alt=""><p><B>WISHCARE</B></p></div>
+                <div class="brand"><img src="2.gif" alt=""><p><B>KAY BEAUTY</B></p></div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+        <section class="products">
+            <strong> <h1>BEST SELLERS </h1></strong>
+            <div class="product-list">
+                <div class="product">
+                    <img src="ecac92e3-03b9-4632-9526-179d532a.jpg" alt="Product 1">
+                    <h3>Trending Makeup</h3>
+                    <p>30% off</p>
+                    <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="79d02e80-52de-4f94-a3c2-a93fe9b3.jpg" alt="Product 1">
+                    <h3>Trending Makeup</h3>
+                    <p>40% off</p>
+                    <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="171ece0e-ef6d-4348-a41c-f05876fa.jpg" alt="Product 1">
+                    <h3>Trending Makeup</h3>
+                    <p>20% off</p>
+                    <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="e067046d-b159-4058-89a8-09bd8d97.jpg" alt="Product 1">
+                    <h3>Trending Makeup</h3>
+                    <p>70% off</p>
+                    <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="22dfa845-ec18-4c9c-8036-95d792d5.jpg" alt="Product 1">
+                    <h3>Trending Makeup</h3>
+                    <p>60% off</p>
+                    <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="6acdebee-8b74-4768-ac8e-86e25427.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="08214bc0-2951-438f-87fa-112a55fd.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="abc1c0a5-295c-443d-954d-f3298e6a.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="ea94a1a7-645b-4c0a-b5a5-ed8dd11c.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="019ecad8-bdc5-42e6-be73-94213a8e.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="38d3f57a-08b5-462b-a8e0-bb80f2b8.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="73f8a518-e8bf-44e6-a8fa-75551a55.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="63304fc7-9047-4573-b521-044b4c05.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="98343b4c-2fa9-4436-949b-630e684c.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="e2436161-2e38-43b0-b92c-b5dbacf2.jpg" alt="Product 2">
+                    <h3>Trending Makeup</h3>
+                    <p>10% off</p>
+                    <button onclick="addToCart('Product Name', 25)">Add to Cart</button>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="slider-container">
+                <div class="images" id="imageContainer">
+                    <img src="44727d34-dd10-4532-b66e-f8797c40cefb_Nykaa_Pink_Love_Sale__Hot_Offers__Upto_60__Off_And_Get_Free_Gifts.gif" alt="Image 1">
+                    <img src="4da14dec-d692-4d5f-a56a-fc4b29a987b1_Nykaa_Pink_Love_Sale__Hot_Offers__Upto_60__Off_And_Get_Free_Gifts.gif" alt="Image 2">
+                    <img src="4da14dec-d692-4d5f-a56a-fc4b29a987b1_Nykaa_Pink_Love_Sale__Hot_Offers__Upto_60__Off_And_Get_Free_Gifts.gif" alt="Image 3">
+                    <img src="4da14dec-d692-4d5f-a56a-fc4b29a987b1_Nykaa_Pink_Love_Sale__Hot_Offers__Upto_60__Off_And_Get_Free_Gifts.gif" alt="Image 4">
+                </div>
+                <button class="prev" onclick="prevImage()">&#10094;</button>
+                <button class="next" onclick="nextImage()">&#10095;</button>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="product-list">
+                <div class="product">
+                    <img src="ecac92e3-03b9-4632-9526-179d532a.jpg" alt="Product 1">
+                    <h3>Trending Makeup</h3>
+                    <p>30% off</p>
+                    <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                </div>
+                            <div class="product">
+                                <img src="688bdfb3-ef2a-4143-b5aa-4236cb4f.jpg" alt="Product 1">
+                                <h3>Trending Makeup</h3>
+                                <p>30% off</p>
+                                <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                            </div>
+                            <div class="product">
+                                <img src="55fa68e8-dfa1-4172-8c05-5691017f.jpg" alt="Product 1">
+                                <h3>Trending Makeup</h3>
+                                <p>30% off</p>
+                                <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                            </div>
+                            <div class="product">
+                                <img src="0b8ca148-cc78-44ca-8334-9789b55e.jpg" alt="Product 1">
+                                <h3>Trending Makeup</h3>
+                                <p>30% off</p>
+                                <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                            </div>
+                            <div class="product">
+                                <img src= "8c5e906c-ccd3-4567-bece-e7d3c92f.jpg"alt="Product 1">
+                                <h3>Trending Makeup</h3>
+                                <p>30% off</p>
+                                <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                            </div>
+                            <div class="product">
+                                <img src="4c911616-70ff-4f1a-a79f-cb7e7093.jpg" alt="Product 1">
+                                <h3>Trending Makeup</h3>
+                                <p>30% off</p>
+                                <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                            </div>
+                            <div class="product">
+                                <img src="f4dda988-1b0f-4fd8-a296-25f9330e.jpg" alt="Product 1">
+                                <h3>Trending Makeup</h3>
+                                <p>30% off</p>
+                                <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                            </div>
+                            <div class="product">
+                                <img src="e2436161-2e38-43b0-b92c-b5dbacf2.jpg" alt="Product 1">
+                                <h3>Trending Makeup</h3>
+                                <p>30% off</p>
+                                <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                            </div>
+                            <div class="product">
+                                <img src="e067046d-b159-4058-89a8-09bd8d97.jpg" alt="Product 1">
+                                <h3>Trending Makeup</h3>
+                                <p>30% off</p>
+                                <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                            </div>
+                            <div class="product">
+                                <img src="171ece0e-ef6d-4348-a41c-f05876fa.jpg" alt="Product 1">
+                                <h3>Trending Makeup</h3>
+                                <p>30% off</p>
+                                <button onclick="addToCart('Product Name', 20)">Add to Cart</button>
+                            </div>                                                                      
+        </section>
+    </main>
+    <br>
+    <br>
+    <br>
+    <img src="Screenshot 2025-02-15 110753.png" alt="" srcset="">
+    
+    <footer>
+        <p>&copy; 2025 Nykaa Clone. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            alert(`${productName} added to cart!`);
+            console.log(cart);
+        }
+
+        let banners = document.querySelectorAll(".banner img");
+        let currentBanner = 0;
+
+        function changeBanner() {
+            banners[currentBanner].classList.remove("active");
+            currentBanner = (currentBanner + 1) % banners.length;
+            banners[currentBanner].classList.add("active");
+        }
+        setInterval(changeBanner, 3000);
+
+        function toggleBrands() {
+            let brandsSection = document.getElementById("brands-section");
+            if (brandsSection.style.display === "none" || brandsSection.style.display === "") {
+                brandsSection.style.display = "block";
+            } else {
+                brandsSection.style.display = "none";
+            }
+        }
+        let index = 0;
+        const images = document.getElementById("imageContainer");
+        const totalImages = images.children.length;
+
+        function showImage() {
+            images.style.transform = `translateX(${-index * 500}px)`;
+        }
+
+        function prevImage() {
+            index = (index > 0) ? index - 1 : totalImages - 1;
+            showImage();
+        }
+
+        function nextImage() {
+            index = (index < totalImages - 1) ? index + 1 : 0;
+            showImage();
+        }
+    </script>
+    </body>
+    </html>
