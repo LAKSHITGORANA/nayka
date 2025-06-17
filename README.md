@@ -1,0 +1,2 @@
+# nayka
+made by lucky
